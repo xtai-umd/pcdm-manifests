@@ -355,6 +355,7 @@ configure do
 end
 
 get '/manifests/:id' do
+  headers 'Access-Control-Allow-Origin' => '*'
   content_type :json
   generate_issue_manifest(FCREPO_BASE_URI + params[:id]).to_json
 end
